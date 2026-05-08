@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Designs Index</title>
+  <meta name="description" content="Accessible index for all design pages.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --ink: #1f2118;
+      --muted: #72745f;
+      --cream: #f6f1df;
+      --gold: #c5a832;
+      --olive: #38482f;
+      --brown: #3a2d22;
+      --line: rgba(56, 72, 47, 0.16);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Jost, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 80% 8%, rgba(197, 168, 50, 0.18), transparent 30%),
+        linear-gradient(135deg, #fffaf0, var(--cream));
+    }
+
+    .site-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(246, 241, 223, 0.82);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--olive);
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 16px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 260ms var(--ease), border-color 260ms var(--ease), background 260ms var(--ease), transform 260ms var(--ease);
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      color: var(--olive);
+      border-color: rgba(197, 168, 50, 0.42);
+      background: rgba(255, 250, 240, 0.72);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .hero {
+      padding: clamp(70px, 10vw, 128px) 0 clamp(46px, 7vw, 80px);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      color: var(--olive);
+      font-size: clamp(2.7rem, 8vw, 6.6rem);
+      line-height: 0.95;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .hero p:not(.eyebrow) {
+      max-width: 680px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.8;
+    }
+
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      padding: 0 0 clamp(70px, 10vw, 120px);
+    }
+
+    .design-card {
+      position: relative;
+      min-height: 430px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 250, 240, 0.76);
+      box-shadow: 0 24px 70px rgba(31, 33, 24, 0.12);
+      text-decoration: none;
+      transition: transform 360ms var(--ease), border-color 360ms var(--ease), box-shadow 360ms var(--ease);
+    }
+
+    .design-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background: linear-gradient(120deg, transparent, rgba(197, 168, 50, 0.18), transparent);
+      transform: translateX(-110%);
+      transition: transform 800ms var(--ease);
+    }
+
+    .design-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(197, 168, 50, 0.55);
+      box-shadow: 0 34px 90px rgba(31, 33, 24, 0.18);
+    }
+
+    .design-card:hover::before {
+      transform: translateX(110%);
+    }
+
+    .design-card__media {
+      min-height: 230px;
+      background:
+        linear-gradient(rgba(24, 28, 18, 0.12), rgba(24, 28, 18, 0.44)),
+        url("image/placeholder.png") center / cover;
+      transition: transform 700ms var(--ease), filter 700ms var(--ease);
+    }
+
+    .design-card:hover .design-card__media {
+      transform: scale(1.035);
+      filter: saturate(1.06) contrast(1.03);
+    }
+
+    .design-card__body {
+      position: relative;
+      z-index: 3;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+    }
+
+    .status {
+      width: fit-content;
+      margin-bottom: 20px;
+      padding: 8px 13px;
+      border: 1px solid rgba(197, 168, 50, 0.45);
+      border-radius: 999px;
+      color: var(--olive);
+      background: rgba(197, 168, 50, 0.12);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .design-card h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.08;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .design-card p {
+      margin: 18px 0 26px;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .open-link {
+      margin-top: auto;
+      color: var(--olive);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .open-link::after {
+      content: " ->";
+      color: var(--gold);
+      transition: margin-left 260ms var(--ease);
+    }
+
+    .design-card:hover .open-link::after {
+      margin-left: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 0;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="site-shell nav-inner">
+      <a class="brand" href="index.html">Designs</a>
+      <nav class="nav-links" aria-label="Design pages">
+        <a class="nav-link" href="baru-sahib-origin/index.html">Baru Sahib Origin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="site-shell hero">
+      <p class="eyebrow">Design Directory</p>
+      <h1>All Design Pages</h1>
+      <p>This index keeps every standalone design accessible from one deployment entry point. Add future folders here as new cards and navbar links.</p>
+    </section>
+
+    <section class="site-shell design-grid" aria-label="Available designs">
+      <a class="design-card" href="baru-sahib-origin/index.html">
+        <div class="design-card__media" aria-hidden="true"></div>
+        <div class="design-card__body">
+          <span class="status">Ready</span>
+          <h2>Baru Sahib Association - The Origin</h2>
+          <p>Premium spiritual storytelling page with long-scroll sections, modern animation, interactive cards, and responsive layout.</p>
+          <span class="open-link">Open Design</span>
+        </div>
+      </a>
+    </section>
+  </main>
+</body>
+</html>
