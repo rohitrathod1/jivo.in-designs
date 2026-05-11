@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cook Healthy With Jivo | Recipe Media Demo</title>
+  <meta name="description" content="A premium native video recipe media page demo for Jivo Wellness creators.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <nav class="page-nav" aria-label="Design navigation">
+    <a class="page-nav__brand" href="../index.html">Designs</a>
+    <div class="page-nav__links">
+      <a href="../baru-sahib-origin/index.html">Baru Sahib Origin</a>
+      <a href="../social-initiatives-jivo-promise/index.html">Jivo Promise</a>
+      <a href="../value-based-education/index.html">Value Based Education</a>
+      <a href="index.html" aria-current="page">Recipe Demo</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero" aria-label="Cook Healthy With Jivo">
+      <video class="hero__video js-ambient-video" muted playsinline loop preload="metadata" poster="../image/placeholder.png" aria-hidden="true">
+        <source src="videos/recipe1.mp4" type="video/mp4">
+      </video>
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <p class="hero__kicker reveal-text">Jivo Wellness Recipe Media</p>
+        <h1 class="hero__title reveal-text">Cook Healthy With Jivo</h1>
+        <p class="hero__copy reveal-text">A premium healthy cooking platform where creators share cinematic recipes made with Jivo oils, ghee, and wellness products.</p>
+        <div class="hero__actions reveal-text">
+          <a class="btn btn--primary" href="#featured">Watch Featured</a>
+          <a class="btn btn--ghost" href="#recipes">Recipes</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section featured" id="featured" aria-label="Our hero recipe">
+      <div class="container featured__grid">
+        <div class="featured__copy reveal">
+          <p class="section-kicker">Our Hero Recipe</p>
+          <h2>Golden Canola Veggie Stir Fry</h2>
+          <p>A cinematic recipe feature designed for product storytelling, creator credibility, and a smooth watch-to-cook journey.</p>
+          <div class="badges">
+            <span>Canola Oil</span>
+            <span>12 min</span>
+            <span>Beginner</span>
+          </div>
+          <a class="btn btn--primary" href="detail.html?recipe=canola-stir-fry">Watch Recipe Steps</a>
+        </div>
+        <article class="youtube-feature reveal" data-glow>
+          <div class="youtube-feature__frame">
+            <iframe
+              src="https://www.youtube.com/embed/1j6iUbfjYtQ"
+              title="Golden Canola Veggie Stir Fry recipe video"
+              loading="lazy"
+              frameborder="0"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section feed" id="recipes" aria-label="Recipe discovery">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Recipe Discovery</p>
+          <h2>Discover Recipes Crafted For Every Lifestyle</h2>
+        </div>
+
+        <div class="filter-bar reveal" data-filter-group aria-label="Recipe filters">
+          <button class="filter-pill is-active" type="button" data-filter="All">All</button>
+          <button class="filter-pill" type="button" data-filter="Canola Oil">Canola Oil</button>
+          <button class="filter-pill" type="button" data-filter="Mustard Oil">Mustard Oil</button>
+          <button class="filter-pill" type="button" data-filter="Olive Oil">Olive Oil</button>
+          <button class="filter-pill" type="button" data-filter="Desi Ghee">Desi Ghee</button>
+          <button class="filter-pill" type="button" data-filter="Wheatgrass">Wheatgrass</button>
+          <button class="filter-pill" type="button" data-filter="Healthy Snacks">Healthy Snacks</button>
+        </div>
+
+        <div class="recipe-grid" data-recipe-grid>
+          <article class="recipe-card reveal" data-glow data-category="Canola Oil" data-recipe-id="canola-stir-fry">
+            <div class="recipe-card__video">
+              <video class="js-hover-video" muted playsinline loop preload="metadata" poster="../image/placeholder.png">
+                <source src="videos/recipe1.mp4" type="video/mp4">
+              </video>
+              <div class="recipe-card__overlay"><span>Preview on hover</span></div>
+            </div>
+            <div class="recipe-card__body">
+              <div class="creator-line">
+                <span class="avatar">AK</span>
+                <div><h3>Ananya Kitchen</h3><p>Wellness Chef</p></div>
+              </div>
+              <h4>Golden Canola Veggie Stir Fry</h4>
+              <p>A bright everyday recipe story using Jivo Canola Oil for lighter, cleaner cooking.</p>
+              <div class="recipe-stats">
+                <span>12 min</span><span>Canola Oil</span><span>320 kcal</span>
+              </div>
+              <div class="badges"><span>High Fiber</span><span>Super Foods</span></div>
+              <a class="card-cta" href="detail.html?recipe=canola-stir-fry">Watch Recipe Steps</a>
+            </div>
+          </article>
+
+          <article class="recipe-card reveal" data-glow data-category="Mustard Oil" data-recipe-id="mustard-dal">
+            <div class="recipe-card__video">
+              <video class="js-hover-video" muted playsinline loop preload="metadata" poster="../image/placeholder.png">
+                <source src="videos/recipe2.mp4" type="video/mp4">
+              </video>
+              <div class="recipe-card__overlay"><span>Preview on hover</span></div>
+            </div>
+            <div class="recipe-card__body">
+              <div class="creator-line">
+                <span class="avatar avatar--green">RS</span>
+                <div><h3>Riya Sethi</h3><p>Home Cook</p></div>
+              </div>
+              <h4>Comfort Dal With Mustard Tempering</h4>
+              <p>A warm homestyle video recipe focused on aroma, simplicity, and everyday wellness.</p>
+              <div class="recipe-stats">
+                <span>22 min</span><span>Mustard Oil</span><span>410 kcal</span>
+              </div>
+              <div class="badges"><span>Protein Rich</span><span>Indian Kitchen</span></div>
+              <a class="card-cta" href="detail.html?recipe=mustard-dal">Watch Recipe Steps</a>
+            </div>
+          </article>
+
+          <article class="recipe-card reveal" data-glow data-category="Olive Oil" data-recipe-id="olive-pasta">
+            <div class="recipe-card__video">
+              <video class="js-hover-video" muted playsinline loop preload="metadata" poster="../image/placeholder.png">
+                <source src="videos/recipe3.mp4" type="video/mp4">
+              </video>
+              <div class="recipe-card__overlay"><span>Preview on hover</span></div>
+            </div>
+            <div class="recipe-card__body">
+              <div class="creator-line">
+                <span class="avatar avatar--blue">DV</span>
+                <div><h3>Dev Verma</h3><p>Food Filmmaker</p></div>
+              </div>
+              <h4>Olive Herb Pasta Plate</h4>
+              <p>A cinematic quick meal concept built around clean texture, herbs, and Jivo Olive Oil.</p>
+              <div class="recipe-stats">
+                <span>18 min</span><span>Olive Oil</span><span>390 kcal</span>
+              </div>
+              <div class="badges"><span>Quick Meals</span><span>Fresh Herbs</span></div>
+              <a class="card-cta" href="detail.html?recipe=olive-pasta">Watch Recipe Steps</a>
+            </div>
+          </article>
+
+          <article class="recipe-card reveal" data-glow data-category="Desi Ghee" data-recipe-id="ghee-breakfast">
+            <div class="recipe-card__video">
+              <video class="js-hover-video" muted playsinline loop preload="metadata" poster="../image/placeholder.png">
+                <source src="videos/recipe1.mp4" type="video/mp4">
+              </video>
+              <div class="recipe-card__overlay"><span>Preview on hover</span></div>
+            </div>
+            <div class="recipe-card__body">
+              <div class="creator-line">
+                <span class="avatar avatar--maroon">NK</span>
+                <div><h3>Nisha Kapoor</h3><p>Nutrition Creator</p></div>
+              </div>
+              <h4>Desi Ghee Breakfast Bowl</h4>
+              <p>A fresh breakfast edit designed for product-led recipe discovery and creator storytelling.</p>
+              <div class="recipe-stats">
+                <span>14 min</span><span>Desi Ghee</span><span>360 kcal</span>
+              </div>
+              <div class="badges"><span>Breakfast</span><span>Good Fats</span></div>
+              <a class="card-cta" href="detail.html?recipe=ghee-breakfast">Watch Recipe Steps</a>
+            </div>
+          </article>
+
+          <article class="recipe-card reveal" data-glow data-category="Wheatgrass" data-recipe-id="wheatgrass-smoothie">
+            <div class="recipe-card__video">
+              <video class="js-hover-video" muted playsinline loop preload="metadata" poster="../image/placeholder.png">
+                <source src="videos/recipe2.mp4" type="video/mp4">
+              </video>
+              <div class="recipe-card__overlay"><span>Preview on hover</span></div>
+            </div>
+            <div class="recipe-card__body">
+              <div class="creator-line">
+                <span class="avatar avatar--green">MS</span>
+                <div><h3>Mira Studio</h3><p>Wellness Creator</p></div>
+              </div>
+              <h4>Wheatgrass Morning Smoothie</h4>
+              <p>A clean green blend for a fresh start, styled for wellness-led product storytelling.</p>
+              <div class="recipe-stats">
+                <span>8 min</span><span>Wheatgrass</span><span>210 kcal</span>
+              </div>
+              <div class="badges"><span>Detox</span><span>Vitamin Rich</span></div>
+              <a class="card-cta" href="detail.html?recipe=wheatgrass-smoothie">Watch Recipe Steps</a>
+            </div>
+          </article>
+
+          <article class="recipe-card reveal" data-glow data-category="Healthy Snacks" data-recipe-id="healthy-snack-bites">
+            <div class="recipe-card__video">
+              <video class="js-hover-video" muted playsinline loop preload="metadata" poster="../image/placeholder.png">
+                <source src="videos/recipe3.mp4" type="video/mp4">
+              </video>
+              <div class="recipe-card__overlay"><span>Preview on hover</span></div>
+            </div>
+            <div class="recipe-card__body">
+              <div class="creator-line">
+                <span class="avatar">KR</span>
+                <div><h3>Kavya Rao</h3><p>Snack Stylist</p></div>
+              </div>
+              <h4>Healthy Millet Snack Bites</h4>
+              <p>Crisp, wholesome bites created for quick reels, pantry discovery, and family snacking.</p>
+              <div class="recipe-stats">
+                <span>16 min</span><span>Healthy Snacks</span><span>280 kcal</span>
+              </div>
+              <div class="badges"><span>Millet</span><span>Kids Friendly</span></div>
+              <a class="card-cta" href="detail.html?recipe=healthy-snack-bites">Watch Recipe Steps</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section creators" id="creators" aria-label="Creator spotlight">
+      <div class="container creator-spotlight">
+        <div class="creator-spotlight__media reveal">
+          <span class="creator-photo">AK</span>
+        </div>
+        <div class="creator-spotlight__copy reveal">
+          <p class="section-kicker">Creator Spotlight</p>
+          <h2>Ananya Kitchen</h2>
+          <p>Premium vegetarian recipes with clean product moments, mobile-first storytelling, and simple cooking steps for everyday wellness.</p>
+          <div class="creator-stats">
+            <span><strong>128K</strong> followers</span>
+            <span><strong>54</strong> recipes</span>
+            <span><strong>4.9</strong> rating</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section products" aria-label="Products used">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Products Used</p>
+          <h2>Wellness pantry staples for every recipe moment.</h2>
+        </div>
+        <div class="product-strip">
+          <article class="product-chip reveal" data-glow><span></span><h3>Jivo Canola Oil</h3></article>
+          <article class="product-chip reveal" data-glow><span></span><h3>Jivo Mustard Oil</h3></article>
+          <article class="product-chip reveal" data-glow><span></span><h3>Jivo Olive Oil</h3></article>
+          <article class="product-chip reveal" data-glow><span></span><h3>Jivo Desi Ghee</h3></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="back-to-top" type="button" aria-label="Back to top">&uarr;</button>
+  <script src="script.js"></script>
+</body>
+</html>
