@@ -15,7 +15,7 @@ const recipes = {
     avatar: 'AK',
     bio: 'Wellness Chef creating clean, premium vegetarian recipes.',
     video: 'videos/recipe1.mp4',
-    productImage: 'assets/jivo-product.svg',
+    productImage: '/image/placeholder.png',
     summary: 'A cinematic recipe feature designed for product storytelling, creator credibility, and a smooth watch-to-cook journey.',
     description: 'A polished, fresh vegetable stir fry built around a clean canola oil cooking moment. The recipe keeps vegetables crisp, glossy, and colorful while giving the product a natural role in the story.',
     gallery: ['../image/placeholder.png', '../image/placeholder.png', '../image/placeholder.png'],
@@ -45,7 +45,7 @@ const recipes = {
     avatar: 'RS',
     bio: 'Home cook focused on warm Indian comfort recipes.',
     video: 'videos/recipe2.mp4',
-    productImage: 'assets/jivo-product.svg',
+    productImage: '/image/placeholder.png',
     summary: 'A warm homestyle video recipe focused on aroma, simplicity, and everyday wellness.',
     description: 'A comforting dal with a bold mustard oil tempering, designed for close-up aroma shots and a clear ingredient-led cooking journey.',
     gallery: ['../image/placeholder.png', '../image/placeholder.png', '../image/placeholder.png'],
@@ -75,7 +75,7 @@ const recipes = {
     avatar: 'DV',
     bio: 'Food filmmaker creating clean quick-meal stories.',
     video: 'videos/recipe3.mp4',
-    productImage: 'assets/jivo-product.svg',
+    productImage: '/image/placeholder.png',
     summary: 'A cinematic quick meal concept built around clean texture, herbs, and Jivo Olive Oil.',
     description: 'A glossy herb pasta that uses olive oil as the foundation for flavor, sheen, and a premium plating moment.',
     gallery: ['../image/placeholder.png', '../image/placeholder.png', '../image/placeholder.png'],
@@ -105,7 +105,7 @@ const recipes = {
     avatar: 'NK',
     bio: 'Nutrition creator with premium breakfast and bowl recipes.',
     video: 'videos/recipe1.mp4',
-    productImage: 'assets/jivo-product.svg',
+    productImage: '/image/placeholder.png',
     summary: 'A fresh breakfast edit designed for product-led recipe discovery and creator storytelling.',
     description: 'A warm breakfast bowl with a refined ghee note, styled for natural product placement and clean morning energy.',
     gallery: ['../image/placeholder.png', '../image/placeholder.png', '../image/placeholder.png'],
@@ -135,7 +135,7 @@ const recipes = {
     avatar: 'MS',
     bio: 'Wellness creator styling fresh drinks and green rituals.',
     video: 'videos/recipe2.mp4',
-    productImage: 'assets/jivo-product.svg',
+    productImage: '/image/placeholder.png',
     summary: 'A clean green blend for a fresh start, styled for wellness-led product storytelling.',
     description: 'A smooth, fresh wheatgrass blend created for a crisp morning ritual and a clean product-led recipe moment.',
     gallery: ['../image/placeholder.png', '../image/placeholder.png', '../image/placeholder.png'],
@@ -165,7 +165,7 @@ const recipes = {
     avatar: 'KR',
     bio: 'Snack stylist creating practical family-friendly recipe edits.',
     video: 'videos/recipe3.mp4',
-    productImage: 'assets/jivo-product.svg',
+    productImage: '/image/placeholder.png',
     summary: 'Crisp, wholesome bites created for quick reels, pantry discovery, and family snacking.',
     description: 'A crisp snack bite recipe with wholesome grains and a premium plating finish for discovery-led recipe cards.',
     gallery: ['../image/placeholder.png', '../image/placeholder.png', '../image/placeholder.png'],
@@ -404,6 +404,69 @@ function setupDetailPage() {
   renderSteps();
 }
 
+function setupCollaborationForms() {
+  const successModal = document.querySelector('#successModal');
+  const closeButton = document.querySelector('.success-modal__close');
+
+  function closeSuccessModal() {
+    successModal?.classList.remove('is-open');
+    successModal?.setAttribute('aria-hidden', 'true');
+  }
+
+  function openSuccessModal() {
+    successModal?.classList.add('is-open');
+    successModal?.setAttribute('aria-hidden', 'false');
+  }
+
+  document.querySelectorAll('[data-file-input]').forEach((input) => {
+    input.addEventListener('change', () => {
+      const uploadBox = input.closest('.upload-box');
+      const fileName = uploadBox?.querySelector('[data-file-name]');
+      const file = input.files?.[0];
+
+      uploadBox?.classList.toggle('has-file', Boolean(file));
+      if (fileName) {
+        if (!fileName.dataset.defaultText) fileName.dataset.defaultText = fileName.textContent;
+        fileName.textContent = file ? file.name : fileName.dataset.defaultText;
+      }
+    });
+  });
+
+  document.querySelectorAll('[data-collab-form]').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const button = form.querySelector('.collab-submit');
+      button?.classList.add('is-loading');
+
+      window.setTimeout(() => {
+        button?.classList.remove('is-loading');
+        openSuccessModal();
+        form.reset();
+        form.querySelectorAll('.upload-box').forEach((box) => {
+          const fileName = box.querySelector('[data-file-name]');
+          box.classList.remove('has-file');
+          if (fileName?.dataset.defaultText) fileName.textContent = fileName.dataset.defaultText;
+        });
+      }, 700);
+    });
+  });
+
+  closeButton?.addEventListener('click', closeSuccessModal);
+  successModal?.addEventListener('click', (event) => {
+    if (event.target === successModal) closeSuccessModal();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeSuccessModal();
+  });
+}
+
 function updateScrollEffects() {
   const scrollY = window.scrollY;
   const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -481,4 +544,5 @@ document.addEventListener('visibilitychange', () => {
 
 setupFilters();
 setupDetailPage();
+setupCollaborationForms();
 updateScrollEffects();

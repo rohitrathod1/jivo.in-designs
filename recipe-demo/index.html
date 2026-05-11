@@ -239,21 +239,50 @@
       </div>
     </section>
 
-    <section class="section products" aria-label="Products used">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="section-kicker">Products Used</p>
-          <h2>Wellness pantry staples for every recipe moment.</h2>
+    <section class="section creator-submit" id="creator-collaboration" aria-label="Recipe creator collaboration submission">
+      <div class="container creator-submit__grid">
+        <div class="creator-submit__copy reveal">
+          <p class="section-kicker">Creator Collaboration</p>
+          <h2>Want To Feature Your Healthy Recipe With Jivo?</h2>
+          <p>Submit your recipe videos, cookbook concepts, or healthy cooking ideas using Jivo products. Our team will review your submission and contact you for collaboration opportunities.</p>
+          <div class="collab-features">
+            <article data-glow><span></span>Recipe Creator Partnerships</article>
+            <article data-glow><span></span>Wellness Influencer Collaborations</article>
+            <article data-glow><span></span>Cookbook &amp; Video Features</article>
+            <article data-glow><span></span>Healthy Lifestyle Promotions</article>
+            <article data-glow><span></span>Community Recipe Campaigns</article>
+          </div>
         </div>
-        <div class="product-strip">
-          <article class="product-chip reveal" data-glow><span></span><h3>Jivo Canola Oil</h3></article>
-          <article class="product-chip reveal" data-glow><span></span><h3>Jivo Mustard Oil</h3></article>
-          <article class="product-chip reveal" data-glow><span></span><h3>Jivo Olive Oil</h3></article>
-          <article class="product-chip reveal" data-glow><span></span><h3>Jivo Desi Ghee</h3></article>
-        </div>
+
+        <form class="creator-form reveal" data-collab-form>
+          <div class="form-grid">
+            <label><span>Full Name</span><input type="text" name="name" placeholder="Your full name" required></label>
+            <label><span>Email Address</span><input type="email" name="email" placeholder="name@example.com" required></label>
+            <label><span>Phone Number</span><input type="tel" name="phone" placeholder="+91 98765 43210"></label>
+            <label><span>Instagram / YouTube Link</span><input type="url" name="social" placeholder="https://"></label>
+            <label><span>Recipe Title</span><input type="text" name="recipe-title" placeholder="Golden Canola Veggie Stir Fry" required></label>
+            <label><span>Product Used</span><select name="product" required><option value="">Select product</option><option>Canola Oil</option><option>Mustard Oil</option><option>Olive Oil</option><option>Desi Ghee</option><option>Wheatgrass</option><option>Other</option></select></label>
+          </div>
+          <label class="form-wide"><span>Recipe Description</span><textarea name="description" rows="5" placeholder="Tell us about your healthy recipe idea..." required></textarea></label>
+          <div class="upload-grid">
+            <label class="upload-box"><input type="file" name="recipe-book" data-file-input accept=".pdf,.doc,.docx,.ppt,.pptx"><span class="upload-icon">UP</span><strong>Upload Recipe Book</strong><small data-file-name>PDF, DOC, or presentation</small></label>
+            <label class="upload-box"><input type="file" name="recipe-video" data-file-input accept="video/*"><span class="upload-icon">UP</span><strong>Upload Recipe Video</strong><small data-file-name>MP4, MOV, or reel export</small></label>
+          </div>
+          <label class="consent-line"><input type="checkbox" required><span>I agree to be contacted by Jivo Wellness regarding my submission.</span></label>
+          <button class="btn btn--primary collab-submit" type="submit"><span>Submit Recipe Collaboration</span></button>
+        </form>
       </div>
     </section>
   </main>
+
+  <div class="success-modal" id="successModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Submission success">
+    <div class="success-modal__card">
+      <button class="success-modal__close" type="button" aria-label="Close success message">&times;</button>
+      <p class="section-kicker">Submission Received</p>
+      <h2>Thank you!</h2>
+      <p>Our wellness collaboration team will contact you soon.</p>
+    </div>
+  </div>
 
   <button class="back-to-top" type="button" aria-label="Back to top">&uarr;</button>
   <script src="script.js"></script>
